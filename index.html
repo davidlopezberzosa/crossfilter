@@ -220,6 +220,7 @@ d3.csv("flights-3m.json", function(error, flights) {
       .key(function(d) { return d3.time.day(d.date); });
 
   // A little coercion, since the CSV is untyped.
+  // WE RETRIEVE THE VARIABLES DATE, DELAY, DISTANCE FROM THE CSV FILE
   flights.forEach(function(d, i) {
     d.index = i;
     d.date = parseDate(d.date);
@@ -234,6 +235,7 @@ d3.csv("flights-3m.json", function(error, flights) {
       dates = date.group(d3.time.day),
       hour = flight.dimension(function(d) { return d.date.getHours() + d.date.getMinutes() / 60; }),
       hours = hour.group(Math.floor),
+      month = flight.dimension(function(d) {return d.date.getMonths()}),
       delay = flight.dimension(function(d) { return Math.max(-60, Math.min(149, d.delay)); }),
       delays = delay.group(function(d) { return Math.floor(d / 10) * 10; }),
       distance = flight.dimension(function(d) { return Math.min(1999, d.distance); }),
