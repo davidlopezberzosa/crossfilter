@@ -168,7 +168,7 @@ aside {
 
 <div id="charts">
   <div id="hour-chart" class="chart">
-    <div class="title">Time of Day</div>
+    <div class="title">Month</div>
   </div>
   <div id="delay-chart" class="chart">
     <div class="title">Arrival Delay (min.)</div>
@@ -244,8 +244,8 @@ d3.csv("flights-3m.json", function(error, flights) {
         .dimension(month)
         .group(months)
       .x(d3.scale.linear()
-        .domain([0, 24])
-        .rangeRound([0, 10 * 24])),
+        .domain([0, 12])
+        .rangeRound([0, 10 * 12])),
 
     barChart()
         .dimension(delay)
