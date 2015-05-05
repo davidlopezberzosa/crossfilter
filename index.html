@@ -245,8 +245,8 @@ d3.csv("flights-3m.json", function(error, flights) {
   var charts = [
 
     barChart()
-        .dimension(hour)
-        .group(hours)
+        .dimension(month)
+        .group(months)
       .x(d3.scale.linear()
         .domain([0, 24])
         .rangeRound([0, 10 * 24])),
