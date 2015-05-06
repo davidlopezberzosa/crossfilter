@@ -208,7 +208,7 @@ d3.csv("data300.json", function(error, flights) {
       hours = hour.group(Math.floor),
       
       day = flight.dimension(function(d) {return d.date.getDate(); }),
-      days = month.group(Math.floor),
+      days = day.group(Math.floor),
       
       month = flight.dimension(function(d) {return d.date.getMonth(); }),
       months = month.group(Math.floor),
