@@ -175,8 +175,8 @@ d3.csv("data.json", function(error, flights) {
   // Various formatters.
   var formatNumber = d3.format(",d"),
       formatChange = d3.format("+,d"),
-      formatDate = d3.time.format("%Y-%m-%d"),
-      formatTime = d3.time.format("%I:%M %p");
+      formatDate = d3.time.format("%Y-%m-%d");
+      //formatTime = d3.time.format("%I:%M %p");
   // A nest operator, for grouping the flight list.
   var nestByDate = d3.nest()
       .key(function(d) { return d3.time.day(d.date); });
@@ -193,8 +193,8 @@ d3.csv("data.json", function(error, flights) {
       all = flight.groupAll(),
       date = flight.dimension(function(d) { return d.date; }),
       dates = date.group(d3.time.day),
-      hour = flight.dimension(function(d) { return d.date.getHours() + d.date.getMinutes() / 60; }),
-      hours = hour.group(Math.floor),
+      //hour = flight.dimension(function(d) { return d.date.getHours() + d.date.getMinutes() / 60; }),
+      //hours = hour.group(Math.floor),
       month = flight.dimension(function(d) {return d.date.getMonth(); }),
       months = month.group(Math.floor),
       year = flight.dimension(function(d) {return d.date.getYear(); }),
