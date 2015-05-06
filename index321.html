@@ -249,9 +249,9 @@ d3.csv("data300.json", function(error, flights) {
         .group(dates)
         .round(d3.time.day.round)
       .x(d3.time.scale()
-        .domain([new Date(2001, 0, 1), new Date(2001, 3, 1)])
+        .domain([new Date(2010, 1, 1), new Date(2020, 12, 31)])
         .rangeRound([0, 10 * 90]))
-        .filter([new Date(2001, 1, 1), new Date(2001, 2, 1)])
+        .filter([new Date(2010, 1, 1), new Date(2020, 2, 1)])
   ];
   // Given our array of charts, which we assume are in the same order as the
   // .chart elements in the DOM, bind the charts to the DOM and render them.
