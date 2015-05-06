@@ -217,7 +217,7 @@ d3.csv("data300.json", function(error, flights) {
         .dimension(year)
         .group(years)
       .x(d3.scale.linear()
-        .domain([00,20 ])
+        .domain([2000,2020 ])
         .rangeRound([0, 10 *20])),
     barChart()
         .dimension(delay)
