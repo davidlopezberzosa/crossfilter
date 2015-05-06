@@ -215,9 +215,9 @@ d3.csv("378964359.json", function(error, flights) {
       year = flight.dimension(function(d) {return d.date.getFullYear(); }),
       years = year.group(Math.floor),
       
-      delay = flight.dimension(function(d) { return Math.max(-60, Math.min(149, d.delay)); }),
+      delay = flight.dimension(function(d) { return Math.max(0, Math.min(50000, d.delay)); }),
       delays = delay.group(function(d) { return Math.floor(d / 10) * 10; }),
-      distance = flight.dimension(function(d) { return Math.min(1999, d.distance); }),
+      distance = flight.dimension(function(d) { return Math.min(100, d.distance); }),
       distances = distance.group(function(d) { return Math.floor(d / 50) * 50; });
   var charts = [
     barChart()
