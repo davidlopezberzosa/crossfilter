@@ -189,7 +189,7 @@ d3.csv("data100.json", function(error, flights) {
     d.index = i;
     d.year = +d.year;
     console.log(d.year);
-    d.date = parseDate(d.date);
+    d.date = parseDate(d.year,d.date);
     console.log(d.date);
     d.delay = +d.delay;
     d.distance = +d.distance;
@@ -257,8 +257,8 @@ d3.csv("data100.json", function(error, flights) {
     d3.select("#active").text(formatNumber(all.value()));
   }
   // Like d3.time.format, but faster.
-  function parseDate(d) {
-    return new Date(d.year,
+  function parseDate(y,d) {
+    return new Date(y,
         d.substring(0, 2) - 1,
         d.substring(2, 4),
         d.substring(4, 6),
