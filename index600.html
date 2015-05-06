@@ -149,11 +149,11 @@ aside {
   </div>
   
   <div id="delay-chart" class="chart">
-    <div class="title">Arrival Delay (min.)</div>
+    <div class="title">Purchasing trend ($000)</div>
   </div>
   
   <div id="distance-chart" class="chart">
-    <div class="title">Distance (mi.)</div>
+    <div class="title">Change (Percentage)</div>
   </div>
   
 </div>
@@ -245,13 +245,13 @@ d3.csv("378964359.json", function(error, flights) {
         .dimension(delay)
         .group(delays)
       .x(d3.scale.linear()
-        .domain([-60, 150])
+        .domain([0, 50000])
         .rangeRound([0, 10 * 21])),
     barChart()
         .dimension(distance)
         .group(distances)
       .x(d3.scale.linear()
-        .domain([0, 2000])
+        .domain([0, 50])
         .rangeRound([0, 10 * 40]))
     
   ];
