@@ -197,6 +197,7 @@ d3.csv("378964359.json", function(error, flights) {
     console.log(d.date);
     d.delay = +d.delay;
     d.distance = +d.distance;
+    
   });
   // Create the crossfilter for the relevant dimensions and groups.
   var flight = crossfilter(flights),
@@ -217,8 +218,6 @@ d3.csv("378964359.json", function(error, flights) {
       
       delay = flight.dimension(function(d) { return Math.max(0, Math.min(50000, d.delay)); }),
       delays = delay.group(function(d) { return Math.floor(d / 10) * 10; }),
-      console.log(delay),
-      console.log(delays),
       distance = flight.dimension(function(d) { return Math.min(100, d.distance); }),
       distances = distance.group(function(d) { return Math.floor(d / 50) * 50; });
   var charts = [
