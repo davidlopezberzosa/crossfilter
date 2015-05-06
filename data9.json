@@ -1,4 +1,4 @@
-year,monht,day,hour,minute,delay,distance,origin,destination
+year,month,day,hour,minute,delay,distance,origin,destination
 2012,01,01,00,01,14,405,MCI,MDW
 2012,01,01,00,20,-11,370,LAX,PHX
 2012,02,01,10,30, 5,389,ONT,SMF
