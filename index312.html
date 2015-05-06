@@ -141,7 +141,7 @@ aside {
 
 <div id="charts">
   <div id="hour-chart" class="chart">
-    <div class="title">Month</div>
+    <div class="title">Year</div>
   </div>
   <div id="delay-chart" class="chart">
     <div class="title">Arrival Delay (min.)</div>
@@ -217,7 +217,7 @@ d3.csv("data300.json", function(error, flights) {
         .dimension(year)
         .group(years)
       .x(d3.scale.linear()
-        .domain([2000,2020 ])
+        .domain([00,20 ])
         .rangeRound([0, 10 *20])),
     barChart()
         .dimension(delay)
