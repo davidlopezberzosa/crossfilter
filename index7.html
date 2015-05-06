@@ -260,7 +260,8 @@ d3.csv("data4.json", function(error, flights) {
         d.substring(0, 2) - 1,
         d.substring(2, 4),
         d.substring(4, 6),
-        d.substring(6, 8));
+        d.substring(6, 8)),
+        d.substring(8,12);
   }
   window.filter = function(filters) {
     filters.forEach(function(d, i) { charts[i].filter(d); });
