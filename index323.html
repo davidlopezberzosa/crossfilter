@@ -248,7 +248,7 @@ d3.csv("data300.json", function(error, flights) {
         .dimension(date)
         .group(dates)
         .round(d3.time.day.round)
-      x(d3.time.scale()
+      .x(d3.time.scale()
         .domain([new Date(2001, 0, 1), new Date(2001, 3, 1)])
         .rangeRound([0, 10 * 90]))
         .filter([new Date(2001, 1, 1), new Date(2001, 2, 1)])
