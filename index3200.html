@@ -236,7 +236,7 @@ d3.csv("3789643592.json", function(error, flights) {
         .group(years)
       .x(d3.scale.linear()
         .domain([2010,2016])
-        .range([2010,2011,2012,2013,2014,2015,2016])),
+        .range([10,10*16])),
         
     barChart()
         .dimension(month)
