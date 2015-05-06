@@ -263,7 +263,7 @@ d3.csv("378964359.json", function(error, flights) {
         .group(distances)
       .x(d3.scale.linear()
         .domain([-50, 50])
-        .rangeRound([0, 50]))
+        .rangeRound([0, 10*50]))
     
   ];
   // Given our array of charts, which we assume are in the same order as the
