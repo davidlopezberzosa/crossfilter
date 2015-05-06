@@ -207,6 +207,9 @@ d3.csv("data300.json", function(error, flights) {
       hour = flight.dimension(function(d) { return d.date.getHours() + d.date.getMinutes() / 60; }),
       hours = hour.group(Math.floor),
       
+      day = flight.dimension(function(d) {return d.date.getDate(); }),
+      days = month.group(Math.floor),
+      
       month = flight.dimension(function(d) {return d.date.getMonth(); }),
       months = month.group(Math.floor),
       
@@ -245,13 +248,11 @@ d3.csv("data300.json", function(error, flights) {
         .domain([0, 2000])
         .rangeRound([0, 10 * 40])),
     barChart()
-        .dimension(date)
-        .group(dates)
-        .round(d3.time.day.round)
-      .x(d3.time.scale()
-        .domain([new Date(2010, 0, 1), new Date(2020, 3, 1)])
-        .rangeRound([0, 10 * 90]))
-        .filter([new Date(2025, 1, 1), new Date(2026, 2, 1)])
+        .dimension(day)
+        .group(days)
+      .x(d3.scale.linear()
+        .domain([0,31])
+        .rangeRound([0, 10 * 31]))
   ];
   // Given our array of charts, which we assume are in the same order as the
   // .chart elements in the DOM, bind the charts to the DOM and render them.
