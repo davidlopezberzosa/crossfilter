@@ -251,7 +251,7 @@ d3.csv("378964359.json", function(error, flights) {
         .dimension(distance)
         .group(distances)
       .x(d3.scale.linear()
-        .domain([0, 50])
+        .domain([-50, 50])
         .rangeRound([0, 10 * 40]))
     
   ];
