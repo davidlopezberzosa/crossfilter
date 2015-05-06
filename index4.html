@@ -198,6 +198,7 @@ d3.csv("data4.json", function(error, flights) {
       month = flight.dimension(function(d) {return d.date.getMonth(); }),
       months = month.group(Math.floor),
       year = flight.dimension(function(d) {return d.date.getYear();}),
+      console.log(year);
       years = year.group(Math.floor),
       delay = flight.dimension(function(d) { return Math.max(-60, Math.min(149, d.delay)); }),
       delays = delay.group(function(d) { return Math.floor(d / 10) * 10; }),
