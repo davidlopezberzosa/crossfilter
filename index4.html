@@ -184,7 +184,6 @@ d3.csv("data4.json", function(error, flights) {
   // WE RETRIEVE THE VARIABLES DATE, DELAY, DISTANCE FROM THE CSV FILE
   flights.forEach(function(d, i) {
     d.index = i;
-    d.year = +d.year;
     d.date = parseDate(d.date);
     d.delay = +d.delay;
     d.distance = +d.distance;
@@ -192,14 +191,14 @@ d3.csv("data4.json", function(error, flights) {
   // Create the crossfilter for the relevant dimensions and groups.
   var flight = crossfilter(flights),
       all = flight.groupAll(),
-      year = flight.dimension(function(d) {return d.year;}),
-      years = year.group(d3.time.year),
       date = flight.dimension(function(d) { return d.date; }),
       dates = date.group(d3.time.day),
       hour = flight.dimension(function(d) { return d.date.getHours() + d.date.getMinutes() / 60; }),
       hours = hour.group(Math.floor),
       month = flight.dimension(function(d) {return d.date.getMonth(); }),
       months = month.group(Math.floor),
+      year = flight.dimension(function(d) {return d.date.getYear();}),
+      years = year.group(Math.floor),
       delay = flight.dimension(function(d) { return Math.max(-60, Math.min(149, d.delay)); }),
       delays = delay.group(function(d) { return Math.floor(d / 10) * 10; }),
       distance = flight.dimension(function(d) { return Math.min(1999, d.distance); }),
