@@ -141,7 +141,7 @@ aside {
 
 <div id="charts">
   <div id="hour-chart" class="chart">
-    <div class="title">Time of Day</div>
+    <div class="title">Month</div>
   </div>
   <div id="delay-chart" class="chart">
     <div class="title">Arrival Delay (min.)</div>
@@ -175,7 +175,7 @@ aside {
 <script src="d3.v3.min.js"></script>
 <script>
 // (It's CSV, but GitHub Pages only gzip's JSON at the moment.)
-d3.csv("data100.json", function(error, flights) {
+d3.csv("data250.json", function(error, flights) {
   // Various formatters.
   var formatNumber = d3.format(",d"),
       formatChange = d3.format("+,d"),
