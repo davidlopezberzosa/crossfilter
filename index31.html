@@ -203,7 +203,7 @@ aside {
 <script>
 
 // (It's CSV, but GitHub Pages only gzip's JSON at the moment.)
-d3.csv("data30.json", function(error, flights) {
+d3.csv("data31.json", function(error, flights) {
 
   // Various formatters.
   var formatNumber = d3.format(",d"),
@@ -219,6 +219,7 @@ d3.csv("data30.json", function(error, flights) {
   // WE RETRIEVE THE VARIABLES DATE, DELAY, DISTANCE FROM THE CSV FILE
   flights.forEach(function(d, i) {
     d.index = i;
+    d.year = +d.year;
     d.date = parseDate(d.date);
     d.delay = +d.delay;
     d.distance = +d.distance;
@@ -233,8 +234,6 @@ d3.csv("data30.json", function(error, flights) {
       hours = hour.group(Math.floor),
       month = flight.dimension(function(d) {return d.date.getMonth(); }),
       months = month.group(Math.floor),
-      year = flight.dimension(function(d) {return d.data.getFullYear();}),
-      years = year.group(Math.floor),
       delay = flight.dimension(function(d) { return Math.max(-60, Math.min(149, d.delay)); }),
       delays = delay.group(function(d) { return Math.floor(d / 10) * 10; }),
       distance = flight.dimension(function(d) { return Math.min(1999, d.distance); }),
@@ -306,11 +305,11 @@ d3.csv("data30.json", function(error, flights) {
   // Like d3.time.format, but faster.
   // the format is year, month,day, hour, minute
   function parseDate(d) {
-    return new Date(d.substring(0,4),
-        d.substring(4, 6) - 1,
-        d.substring(6, 8),
-        d.substring(8, 10),
-        d.substring(10, 12));
+    return new Date(d.year,
+        d.substring(0, 2) - 1,
+        d.substring(2, 4),
+        d.substring(4, 6),
+        d.substring(6, 8));
   }
 
   window.filter = function(filters) {
