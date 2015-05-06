@@ -147,16 +147,19 @@ aside {
   <div id="hour-chart" class="chart">
     <div class="title">Month</div>
   </div>  
-    
-    <div id="delay-chart" class="chart">
+  
+  <div id="date-chart" class="chart">
+    <div class="title">Day</div>
+  </div>
+  
+  <div id="delay-chart" class="chart">
     <div class="title">Arrival Delay (min.)</div>
   </div>
+  
   <div id="distance-chart" class="chart">
     <div class="title">Distance (mi.)</div>
   </div>
-  <div id="date-chart" class="chart">
-    <div class="title">Date</div>
-  </div>
+  
 </div>
 
 <aside id="totals"><span id="active">-</span> of <span id="total">-</span> flights selected.</aside>
@@ -236,6 +239,13 @@ d3.csv("data300.json", function(error, flights) {
         .rangeRound([0, 10 * 12])),
     
     barChart()
+        .dimension(day)
+        .group(days)
+      .x(d3.scale.linear()
+        .domain([0,31])
+        .rangeRound([0, 10 * 31])),
+    
+    barChart()
         .dimension(delay)
         .group(delays)
       .x(d3.scale.linear()
@@ -246,13 +256,8 @@ d3.csv("data300.json", function(error, flights) {
         .group(distances)
       .x(d3.scale.linear()
         .domain([0, 2000])
-        .rangeRound([0, 10 * 40])),
-    barChart()
-        .dimension(day)
-        .group(days)
-      .x(d3.scale.linear()
-        .domain([0,31])
-        .rangeRound([0, 10 * 31]))
+        .rangeRound([0, 10 * 40]))
+    
   ];
   // Given our array of charts, which we assume are in the same order as the
   // .chart elements in the DOM, bind the charts to the DOM and render them.
