@@ -315,11 +315,11 @@ d3.csv("378964359.json", function(error, flights) {
           .text(function(d) { return formatTime(d.date); });
       flightEnter.append("div")
           .attr("class", "distance")
-          .text(function(d) { return formatNumber(d.distance) + " $000."; });
+          .text(function(d) { return formatNumber(d.distance) + "%change"; });
       flightEnter.append("div")
           .attr("class", "delay")
           .classed("early", function(d) { return d.delay < 0; })
-          .text(function(d) { return formatChange(d.delay) + " perc. change."; });
+          .text(function(d) { return formatChange(d.delay) + "$"; });
       flight.exit().remove();
       flight.order();
     });
