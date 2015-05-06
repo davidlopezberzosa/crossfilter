@@ -314,18 +314,12 @@ d3.csv("378964359.json", function(error, flights) {
           .attr("class", "time")
           .text(function(d) { return formatTime(d.date); });
       flightEnter.append("div")
-          .attr("class", "origin")
-          .text(function(d) { return d.origin; });
-      flightEnter.append("div")
-          .attr("class", "destination")
-          .text(function(d) { return d.destination; });
-      flightEnter.append("div")
           .attr("class", "distance")
-          .text(function(d) { return formatNumber(d.distance) + " mi."; });
+          .text(function(d) { return formatNumber(d.distance) + " $000."; });
       flightEnter.append("div")
           .attr("class", "delay")
           .classed("early", function(d) { return d.delay < 0; })
-          .text(function(d) { return formatChange(d.delay) + " min."; });
+          .text(function(d) { return formatChange(d.delay) + " perc. change."; });
       flight.exit().remove();
       flight.order();
     });
