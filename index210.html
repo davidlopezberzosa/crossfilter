@@ -188,6 +188,7 @@ d3.csv("data100.json", function(error, flights) {
   flights.forEach(function(d, i) {
     d.index = i;
     d.year = +d.year;
+    console.log(year);
     d.date = parseDate(d.date);
     d.delay = +d.delay;
     d.distance = +d.distance;
