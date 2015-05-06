@@ -258,7 +258,7 @@ d3.csv("data100.json", function(error, flights) {
   }
   // Like d3.time.format, but faster.
   function parseDate(d) {
-    return new Date(2001,
+    return new Date(d.year,
         d.substring(0, 2) - 1,
         d.substring(2, 4),
         d.substring(4, 6),
