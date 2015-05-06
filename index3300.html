@@ -256,8 +256,8 @@ d3.csv("3789643592.json", function(error, flights) {
         .dimension(delay)
         .group(delays)
       .x(d3.scale.linear()
-        .domain([0, 50000])
-        .rangeRound([0,10*50])),
+        .domain([0, 60000])
+        .rangeRound([0,10*60])),
     barChart()
         .dimension(distance)
         .group(distances)
